@@ -12,7 +12,13 @@
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_take_screenshot",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(claude mcp *)",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); proj=list\\(d.get\\('projects',{}\\).values\\(\\)\\)[-1] if d.get\\('projects'\\) else {}; print\\(json.dumps\\(proj.get\\('mcpServers',{}\\), indent=2\\)\\)\")",
+      "Bash(git config *)",
+      "Bash(gh api *)",
+      "mcp__github__search_users",
+      "mcp__github__create_repository"
     ]
   }
 }

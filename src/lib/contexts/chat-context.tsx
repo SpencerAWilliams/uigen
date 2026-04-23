@@ -5,6 +5,7 @@ import {
   useContext,
   ReactNode,
   useEffect,
+  useRef,
   useState,
 } from "react";
 import { useChat as useAIChat } from "@ai-sdk/react";
@@ -34,6 +35,7 @@ export function ChatProvider({
 }: ChatContextProps & { children: ReactNode }) {
   const { fileSystem, handleToolCall } = useFileSystem();
   const [input, setInput] = useState("");
+  const appliedToolCallIds = useRef(new Set<string>());
 
   const { sendMessage, messages, status } = useAIChat({
     transport: new DefaultChatTransport({
@@ -60,6 +62,23 @@ export function ChatProvider({
     sendMessage({ text: trimmed });
     setInput("");
   };
+
+  // Apply server-executed tool calls to the client file system as they stream in.
+  // onToolCall only fires for client-side tools; server-side tools must be extracted from messages.
+  useEffect(() => {
+    for (const message of messages) {
+      if (message.role !== "assistant") continue;
+      for (const part of message.parts) {
+        if (!part.type.startsWith("tool-")) continue;
+        const toolPart = part as any;
+        const callId: string | undefined = toolPart.toolCallId;
+        if (!callId || appliedToolCallIds.current.has(callId)) continue;
+        if (!toolPart.input) continue;
+        appliedToolCallIds.current.add(callId);
+        handleToolCall({ toolName: toolPart.toolName ?? part.type.slice(5), args: toolPart.input });
+      }
+    }
+  }, [messages, handleToolCall]);
 
   useEffect(() => {
     if (!projectId && messages.length > 0) {

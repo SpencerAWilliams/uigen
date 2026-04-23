@@ -1,6 +1,6 @@
 import type { FileNode } from "@/lib/file-system";
 import { VirtualFileSystem } from "@/lib/file-system";
-import { streamText, stepCountIs } from "ai";
+import { streamText, stepCountIs, convertToModelMessages } from "ai";
 import { buildStrReplaceTool } from "@/lib/tools/str-replace";
 import { buildFileManagerTool } from "@/lib/tools/file-manager";
 import { prisma } from "@/lib/prisma";
@@ -16,13 +16,13 @@ export async function POST(req: Request) {
   }: { messages: any[]; files: Record<string, FileNode>; projectId?: string } =
     await req.json();
 
-  messages.unshift({
-    role: "system",
+  const systemMessage = {
+    role: "system" as const,
     content: generationPrompt,
     providerOptions: {
       anthropic: { cacheControl: { type: "ephemeral" } },
     },
-  });
+  };
 
   // Reconstruct the VirtualFileSystem from serialized data
   const fileSystem = new VirtualFileSystem();
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
   const isMockProvider = !process.env.ANTHROPIC_API_KEY;
   const result = streamText({
     model,
-    messages,
+    messages: [systemMessage, ...convertToModelMessages(messages)],
     maxOutputTokens: 10_000,
     stopWhen: stepCountIs(isMockProvider ? 4 : 40),
     onError: (err: any) => {
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
     },
   });
 
-  const originalMessages = messages.filter((m: any) => m.role !== "system");
+  const originalMessages = messages;
 
   return result.toUIMessageStreamResponse({
     originalMessages,
