@@ -9,9 +9,11 @@ on:
     types: [opened, assigned]
   pull_request_review:
     types: [submitted]
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
-  claude:
+  claude-mention:
     if: |
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
@@ -24,6 +26,66 @@ jobs:
       issues: write
       id-token: write
     steps:
+      - name: Project Setup
+        run: |
+          npm run setup
+          npm run dev:daemon
       - uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          custom_instructions: |
+            This is UIGen, a Next.js 15 App Router app where users describe React components and Claude generates them with live preview.
+
+            The project is already set up with all dependencies installed. The server is already running at localhost:3000. Logs from it are beign written to logs.txt. If needed, you can query the db with the 'sqlite3' cli. If needed, use the mcp__playwright set of tools to launch a browser and interact with the app.
+
+            Architecture:
+            - POST /api/chat streams Claude responses via Vercel AI SDK; Claude uses str_replace_editor and file_manager tool calls to mutate a VirtualFileSystem (in-memory, no disk I/O)
+            - State lives in two React contexts: ChatContext (message history) and FileSystemContext (VirtualFileSystem)
+            - Auth: JWT via jose + bcrypt; SQLite + Prisma (prisma/schema.prisma); anonymous work migrated to projects on login
+            - Preview: Monaco Editor + Babel standalone transpiles virtual App.jsx in-browser
+            - Path alias @/ maps to src/; server-only modules use the "server-only" package
+            - All dev/build commands require cross-env NODE_OPTIONS="--require ./node-compat.cjs" (already in package.json scripts)
+
+            Environment:
+            - The project is already set up with all dependencies installed and the database migrated.
+            - The dev server is running at http://localhost:3000; logs are in logs.txt.
+            - Query the database with the sqlite3 CLI (prisma/dev.db).
+            - Use mcp__playwright tools to visually test UI changes in the browser.
+
+            Commands: npm run dev:daemon, npm run build, npm run lint, npm test, npm run db:reset
+          mcp_config: |
+            {
+              "mcpServers": {
+                "playwright": {
+                  "command": "npx",
+                  "args": [
+                    "@playwright/mcp@latest",
+                    "--allowed-origins",
+                    "localhost:3000;cdn.tailwindcss.com;esm.sh"
+                  ]
+                }
+              }
+            }
+          allowed_tools: "Bash(npm:*),Bash(npx:*),Bash(sqlite3:*),Bash(cat:*),Bash(ls:*),Bash(grep:*),mcp__playwright__browser_snapshot,mcp__playwright__browser_click,mcp__playwright__browser_navigate,mcp__playwright__browser_fill_form,mcp__playwright__browser_type,mcp__playwright__browser_press_key,mcp__playwright__browser_select_option,mcp__playwright__browser_take_screenshot,mcp__playwright__browser_wait_for,mcp__playwright__browser_evaluate,mcp__playwright__browser_console_messages,mcp__playwright__browser_network_requests,mcp__playwright__browser_hover,mcp__playwright__browser_close,mcp__playwright__browser_resize,mcp__playwright__browser_tabs"
+
+  claude-pr-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          task: |
+            Review this pull request. Focus on:
+            - Correctness and potential bugs
+            - Breaking changes to the VirtualFileSystem, ChatContext, or FileSystemContext APIs
+            - SSR safety (no browser globals during server render — the node-compat.cjs polyfill removes localStorage/sessionStorage, so don't add new ones)
+            - Security issues in auth (src/lib/auth.ts), API routes, or middleware
+            - Test coverage for changed logic in src/lib/
+            Post your review as a pull request comment.
+          allowed_tools: "Bash(npm:*),Bash(cat:*),Bash(ls:*),Bash(grep:*)"
