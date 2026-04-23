@@ -1,0 +1,251 @@
+- generic [ref=e1]:
+  - generic [active]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - navigation [ref=e45]:
+            - button "previous" [disabled] [ref=e46]:
+              - img "previous" [ref=e47]
+            - generic [ref=e49]:
+              - generic [ref=e50]: 1/
+              - text: "3"
+            - button "next" [ref=e51] [cursor=pointer]:
+              - img "next" [ref=e52]
+          - img
+        - generic [ref=e54]:
+          - link "Next.js 15.5.15 (outdated) Turbopack" [ref=e55] [cursor=pointer]:
+            - /url: https://nextjs.org/docs/messages/version-staleness
+            - img [ref=e56]
+            - generic "An outdated version detected (latest is 16.2.4), upgrade is highly recommended!" [ref=e58]: Next.js 15.5.15 (outdated)
+            - generic [ref=e59]: Turbopack
+          - img
+      - generic [ref=e60]:
+        - dialog "Console Error" [ref=e61]:
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]:
+                - generic [ref=e68]: Console Error
+                - generic [ref=e69]:
+                  - button "Copy Error Info" [ref=e70] [cursor=pointer]:
+                    - img [ref=e71]
+                  - link "Go to related documentation" [ref=e73] [cursor=pointer]:
+                    - /url: https://nextjs.org/docs/messages/react-hydration-error
+                    - img [ref=e74]
+                  - link "Learn more about enabling Node.js inspector for server code with Chrome DevTools" [ref=e76] [cursor=pointer]:
+                    - /url: https://nextjs.org/docs/app/building-your-application/configuring/debugging#server-side-code
+                    - img [ref=e77]
+              - paragraph [ref=e86]: "A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:"
+            - generic [ref=e87]:
+              - generic [ref=e88]:
+                - paragraph [ref=e89]: "- A server/client branch `if (typeof window !== 'undefined')`. - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called. - Date formatting in a user's locale which doesn't match the server. - External changing data without sending a snapshot of it along with the HTML. - Invalid HTML tag nesting. It can also happen if the client has a browser extension installed which messes with the HTML before React loaded."
+                - paragraph [ref=e90]:
+                  - text: "See more info here:"
+                  - link "https://nextjs.org/docs/messages/react-hydration-error" [ref=e91] [cursor=pointer]:
+                    - /url: https://nextjs.org/docs/messages/react-hydration-error
+              - generic [ref=e92]:
+                - button "complete Component Stack" [ref=e93] [cursor=pointer]:
+                  - img [ref=e94]
+                - code [ref=e97]:
+                  - generic [ref=e98]: ...
+                  - generic [ref=e99]: "<RedirectErrorBoundary router={{...}}>"
+                  - generic [ref=e100]: "<InnerLayoutRouter url=\"/\" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>"
+                  - generic [ref=e101]: <SegmentViewNode type="page" pagePath="page.tsx">
+                  - generic [ref=e102]: <SegmentTrieNode>
+                  - generic [ref=e103]: <Home>
+                  - generic [ref=e104]: "<MainContent user={null}>"
+                  - generic [ref=e105]: "<FileSystemProvider initialData={undefined}>"
+                  - generic [ref=e106]: "<ChatProvider projectId={undefined} initialMessages={undefined}>"
+                  - generic [ref=e107]: <div className="h-screen w...">
+                  - generic [ref=e108]: <ResizablePanelGroup direction="horizontal" className="h-full">
+                  - generic [ref=e109]: <forwardRef(PanelGroup) data-slot="resizable-..." className="flex w-ful..." direction="horizontal">
+                  - generic [ref=e110]: <PanelGroup data-slot="resizable-..." className="flex w-ful..." direction="horizontal" ...>
+                  - generic [ref=e111]: <div
+                  - generic [ref=e112]: data-slot="resizable-panel-group"
+                  - generic [ref=e113]: className="flex w-full data-[panel-group-direction=vertical]:flex-col h-full"
+                  - generic [ref=e114]: "id={null}"
+                  - generic [ref=e115]: "ref={{current:null}}"
+                  - generic [ref=e116]: "style={{display:\"flex\",flexDirection:\"row\",height:\"100%\",overflow:\"hidden\",width:\"100%\"}}"
+                  - generic [ref=e117]: data-panel-group=""
+                  - generic [ref=e118]: data-panel-group-direction="horizontal"
+                  - generic [ref=e120]: + data-panel-group-id="_R_lrlb_"
+                  - generic [ref=e122]: "- data-panel-group-id=\"_R_4lrlb_\""
+                  - generic [ref=e123]: ">"
+                  - generic [ref=e124]: "<ResizablePanel defaultSize={35} minSize={25} maxSize={50}>"
+                  - generic [ref=e125]: "<forwardRef(Panel) data-slot=\"resizable-...\" defaultSize={35} minSize={25} maxSize={50}>"
+                  - generic [ref=e126]: "<Panel data-slot=\"resizable-...\" defaultSize={35} minSize={25} maxSize={50} ...>"
+                  - generic [ref=e127]: <div
+                  - generic [ref=e128]: data-slot="resizable-panel"
+                  - generic [ref=e129]: className=""
+                  - generic [ref=e131]: + id="_R_6lrlb_"
+                  - generic [ref=e133]: "- id=\"_R_slrlb_\""
+                  - generic [ref=e134]: "style={{flexBasis:0,flexGrow:\"35.0\",flexShrink:1,overflow:\"hidden\",pointerEvents:undefined}}"
+                  - generic [ref=e136]: + data-panel-group-id="_R_lrlb_"
+                  - generic [ref=e138]: "- data-panel-group-id=\"_R_4lrlb_\""
+                  - generic [ref=e139]: data-panel=""
+                  - generic [ref=e140]: "data-panel-collapsible={undefined}"
+                  - generic [ref=e142]: + data-panel-id="_R_6lrlb_"
+                  - generic [ref=e144]: "- data-panel-id=\"_R_slrlb_\""
+                  - generic [ref=e145]: data-panel-size="35.0"
+                  - generic [ref=e146]: ">"
+                  - generic [ref=e147]: <ResizableHandle className="w-[1px] bg...">
+                  - generic [ref=e148]: "<PanelResizeHandle data-slot=\"resizable-...\" className={\"focus-vi...\"}>"
+                  - generic [ref=e149]: <div
+                  - generic [ref=e150]: data-slot="resizable-handle"
+                  - generic [ref=e151]: "className={\"focus-visible:ring-ring relative flex items-center justify-center after...\"}"
+                  - generic [ref=e152]: "id={undefined}"
+                  - generic [ref=e153]: "onBlur={function onBlur}"
+                  - generic [ref=e154]: "onFocus={function onFocus}"
+                  - generic [ref=e155]: "ref={{current:null}}"
+                  - generic [ref=e156]: role="separator"
+                  - generic [ref=e157]: "style={{touchAction:\"none\",userSelect:\"none\"}}"
+                  - generic [ref=e158]: "tabIndex={0}"
+                  - generic [ref=e159]: data-panel-group-direction="horizontal"
+                  - generic [ref=e161]: + data-panel-group-id="_R_lrlb_"
+                  - generic [ref=e163]: "- data-panel-group-id=\"_R_4lrlb_\""
+                  - generic [ref=e164]: data-resize-handle=""
+                  - generic [ref=e165]: "data-resize-handle-active={undefined}"
+                  - generic [ref=e166]: "data-panel-resize-handle-enabled={true}"
+                  - generic [ref=e168]: + data-panel-resize-handle-id="_R_alrlb_"
+                  - generic [ref=e170]: "- data-panel-resize-handle-id=\"_R_1clrlb_\""
+                  - generic [ref=e171]: data-resize-handle-state="inactive"
+                  - generic [ref=e172]: ">"
+                  - generic [ref=e173]: "<ResizablePanel defaultSize={65}>"
+                  - generic [ref=e174]: "<forwardRef(Panel) data-slot=\"resizable-...\" defaultSize={65}>"
+                  - generic [ref=e175]: "<Panel data-slot=\"resizable-...\" defaultSize={65} forwardedRef={null}>"
+                  - generic [ref=e176]: <div
+                  - generic [ref=e177]: data-slot="resizable-panel"
+                  - generic [ref=e178]: className=""
+                  - generic [ref=e180]: + id="_R_elrlb_"
+                  - generic [ref=e182]: "- id=\"_R_1slrlb_\""
+                  - generic [ref=e183]: "style={{flexBasis:0,flexGrow:\"65.0\",flexShrink:1,overflow:\"hidden\",pointerEvents:undefined}}"
+                  - generic [ref=e185]: + data-panel-group-id="_R_lrlb_"
+                  - generic [ref=e187]: "- data-panel-group-id=\"_R_4lrlb_\""
+                  - generic [ref=e188]: data-panel=""
+                  - generic [ref=e189]: "data-panel-collapsible={undefined}"
+                  - generic [ref=e191]: + data-panel-id="_R_elrlb_"
+                  - generic [ref=e193]: "- data-panel-id=\"_R_1slrlb_\""
+                  - generic [ref=e194]: data-panel-size="65.0"
+                  - generic [ref=e195]: ">"
+                  - generic [ref=e196]: ...
+                  - generic [ref=e197]: <div role="tablist" aria-orientation="horizontal" data-slot="tabs-list" ...>
+                  - generic [ref=e198]: ...
+                  - generic [ref=e199]: "<Primitive.span.Slot tabIndex={-1} data-orientation=\"horizontal\" ...>"
+                  - generic [ref=e200]: "<Primitive.span.SlotClone tabIndex={-1} data-orientation=\"horizontal\" ...>"
+                  - generic [ref=e201]: "<Primitive.button type=\"button\" role=\"tab\" aria-selected={true} ...>"
+                  - generic [ref=e202]: <button
+                  - generic [ref=e203]: type="button"
+                  - generic [ref=e204]: role="tab"
+                  - generic [ref=e205]: "aria-selected={true}"
+                  - generic [ref=e207]: + aria-controls="radix-_R_5ulrlb_-content-preview"
+                  - generic [ref=e209]: "- aria-controls=\"radix-_R_nslrlb_-content-preview\""
+                  - generic [ref=e210]: data-state="active"
+                  - generic [ref=e211]: "data-disabled={undefined}"
+                  - generic [ref=e212]: "disabled={false}"
+                  - generic [ref=e214]: + id="radix-_R_5ulrlb_-trigger-preview"
+                  - generic [ref=e216]: "- id=\"radix-_R_nslrlb_-trigger-preview\""
+                  - generic [ref=e217]: data-slot="tabs-trigger"
+                  - generic [ref=e218]: "className={\"dark:data-[state=active]:text-foreground focus-visible:...\"}"
+                  - generic [ref=e219]: "onMouseDown={function}"
+                  - generic [ref=e220]: "onKeyDown={function}"
+                  - generic [ref=e221]: "onFocus={function}"
+                  - generic [ref=e222]: "tabIndex={-1}"
+                  - generic [ref=e223]: data-orientation="horizontal"
+                  - generic [ref=e224]: data-radix-collection-item=""
+                  - generic [ref=e225]: "ref={function}"
+                  - generic [ref=e226]: ">"
+                  - generic [ref=e228]: + Preview
+                  - generic [ref=e229]: ...
+                  - generic [ref=e230]: "<Primitive.span.Slot tabIndex={-1} data-orientation=\"horizontal\" ...>"
+                  - generic [ref=e231]: "<Primitive.span.SlotClone tabIndex={-1} data-orientation=\"horizontal\" ...>"
+                  - generic [ref=e232]: "<Primitive.button type=\"button\" role=\"tab\" aria-selected={false} ...>"
+                  - generic [ref=e233]: <button
+                  - generic [ref=e234]: type="button"
+                  - generic [ref=e235]: role="tab"
+                  - generic [ref=e236]: "aria-selected={false}"
+                  - generic [ref=e238]: + aria-controls="radix-_R_5ulrlb_-content-code"
+                  - generic [ref=e240]: "- aria-controls=\"radix-_R_nslrlb_-content-code\""
+                  - generic [ref=e241]: data-state="inactive"
+                  - generic [ref=e242]: "data-disabled={undefined}"
+                  - generic [ref=e243]: "disabled={false}"
+                  - generic [ref=e245]: + id="radix-_R_5ulrlb_-trigger-code"
+                  - generic [ref=e247]: "- id=\"radix-_R_nslrlb_-trigger-code\""
+                  - generic [ref=e248]: data-slot="tabs-trigger"
+                  - generic [ref=e249]: "className={\"dark:data-[state=active]:text-foreground focus-visible:...\"}"
+                  - generic [ref=e250]: "onMouseDown={function}"
+                  - generic [ref=e251]: "onKeyDown={function}"
+                  - generic [ref=e252]: "onFocus={function}"
+                  - generic [ref=e253]: "tabIndex={-1}"
+                  - generic [ref=e254]: data-orientation="horizontal"
+                  - generic [ref=e255]: data-radix-collection-item=""
+                  - generic [ref=e256]: "ref={function}"
+                  - generic [ref=e257]: ">"
+                  - generic [ref=e259]: + Code
+                  - generic [ref=e260]: ...
+                  - generic [ref=e261]: ...
+              - generic [ref=e262]:
+                - paragraph [ref=e264]:
+                  - img [ref=e266]
+                  - generic [ref=e269]: src/components/ui/resizable.tsx (28:10) @ ResizablePanel
+                  - button "Open in editor" [ref=e270] [cursor=pointer]:
+                    - img [ref=e272]
+                - generic [ref=e275]:
+                  - generic [ref=e276]: 26 | ...props
+                  - generic [ref=e277]: "27 | }: React.ComponentProps<typeof ResizablePrimitive.Panel>) {"
+                  - generic [ref=e278]: "> 28 | return <ResizablePrimitive.Panel data-slot=\"resizable-panel\" {...props} />"
+                  - generic [ref=e279]: "| ^"
+                  - generic [ref=e280]: "29 | }"
+                  - generic [ref=e281]: 30 |
+                  - generic [ref=e282]: "31 | function ResizableHandle({"
+              - generic [ref=e283]:
+                - generic [ref=e284]:
+                  - paragraph [ref=e285]:
+                    - text: Call Stack
+                    - generic [ref=e286]: "22"
+                  - button "Show 18 ignore-listed frame(s)" [ref=e287] [cursor=pointer]:
+                    - text: Show 18 ignore-listed frame(s)
+                    - img [ref=e288]
+                - generic [ref=e290]:
+                  - generic [ref=e291]: div
+                  - text: <anonymous>
+                - generic [ref=e292]:
+                  - generic [ref=e293]:
+                    - text: ResizablePanel
+                    - button "Open ResizablePanel in editor" [ref=e294] [cursor=pointer]:
+                      - img [ref=e295]
+                  - text: src/components/ui/resizable.tsx (28:10)
+                - generic [ref=e297]:
+                  - generic [ref=e298]:
+                    - text: MainContent
+                    - button "Open MainContent in editor" [ref=e299] [cursor=pointer]:
+                      - img [ref=e300]
+                  - text: src/app/main-content.tsx (42:13)
+                - generic [ref=e302]:
+                  - generic [ref=e303]:
+                    - text: Home
+                    - button "Open Home in editor" [ref=e304] [cursor=pointer]:
+                      - img [ref=e305]
+                  - text: src\app\page.tsx (29:10)
+          - generic [ref=e307]:
+            - generic [ref=e308]: "1"
+            - generic [ref=e309]: "2"
+        - contentinfo [ref=e310]:
+          - region "Error feedback" [ref=e311]:
+            - paragraph [ref=e312]:
+              - link "Was this helpful?" [ref=e313] [cursor=pointer]:
+                - /url: https://nextjs.org/telemetry#error-feedback
+            - button "Mark as helpful" [ref=e314] [cursor=pointer]:
+              - img [ref=e315]
+            - button "Mark as not helpful" [ref=e318] [cursor=pointer]:
+              - img [ref=e319]
+    - generic [ref=e326] [cursor=pointer]:
+      - button "Open issues overlay" [ref=e327]:
+        - img [ref=e329]
+        - generic [ref=e331]:
+          - generic [ref=e332]: "2"
+          - generic [ref=e333]: "3"
+        - generic [ref=e334]:
+          - text: Issue
+          - generic [ref=e335]: s
+      - button "Collapse issues badge" [ref=e336]:
+        - img [ref=e337]
+  - 'heading "Application error: a client-side exception has occurred while loading localhost (see the browser console for more information)." [level=2] [ref=e341]'

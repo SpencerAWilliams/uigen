@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node *)",
+      "Bash(npm view *)",
+      "Bash(npm list *)",
+      "Bash(npx tsc *)",
+      "Bash(git stash *)",
+      "Bash(npm audit *)",
+      "Bash(npm run *)",
+      "mcp__playwright",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
