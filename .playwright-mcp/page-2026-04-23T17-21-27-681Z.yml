@@ -1,0 +1,110 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - heading "React Component Generator" [level=1] [ref=e7]
+      - generic [ref=e9]:
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e57]: create a weather dashboard widget
+            - img [ref=e60]
+          - generic [ref=e63]:
+            - img [ref=e66]
+            - generic [ref=e70]:
+              - paragraph [ref=e72]: I'll create an original weather dashboard widget with a data-dense, terminal-inspired aesthetic.
+              - generic [ref=e75]: Created App.jsx
+              - separator [ref=e76]
+              - paragraph [ref=e78]: "Now I'll create the main weather dashboard component:"
+              - generic [ref=e82]: Created WeatherDashboard.jsx
+              - separator [ref=e89]
+              - generic [ref=e90]:
+                - paragraph [ref=e91]:
+                  - text: Done. I've created a
+                  - strong [ref=e92]: terminal-inspired weather dashboard
+                  - text: "with:"
+                - list [ref=e93]:
+                  - listitem [ref=e94]:
+                    - strong [ref=e95]: Data-dense aesthetic
+                    - text: ": Bloomberg terminal style with monospace typography, bright cyan on dark background, and stark borders"
+                  - listitem [ref=e96]:
+                    - strong [ref=e97]: Real-time data
+                    - text: ": Uses the free Open-Meteo API (no key needed)"
+                  - listitem [ref=e98]:
+                    - strong [ref=e99]: Key metrics
+                    - text: ": Temperature, \"feels like\", humidity, wind speed, visibility, and precipitation"
+                  - listitem [ref=e100]:
+                    - strong [ref=e101]: Interactive search
+                    - text: ": Search any city, updates live"
+                  - listitem [ref=e102]:
+                    - strong [ref=e103]: Visual hierarchy
+                    - text: ": Oversized temperature display dominates, metrics in a grid below"
+                  - listitem [ref=e104]:
+                    - strong [ref=e105]: Iconography
+                    - text: ": Lucide icons for each metric, weather-responsive"
+                  - listitem [ref=e106]:
+                    - strong [ref=e107]: No clichés
+                    - text: ": No gradients, no rounded buttons, no glassmorphism—just pure terminal vibes"
+                - paragraph [ref=e108]: The widget fetches real weather data and displays it in a format that feels like you're monitoring a live system.
+        - generic [ref=e20]:
+          - textbox "Describe the React component you want to create..." [ref=e21]
+          - button [disabled] [ref=e22]:
+            - img [ref=e23]
+    - separator [ref=e26]
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - tablist [ref=e31]:
+          - tab "Preview" [selected] [ref=e32]
+          - tab "Code" [ref=e33]
+        - generic [ref=e34]:
+          - button "Sign In" [ref=e35]
+          - button "Sign Up" [ref=e36]
+      - iframe [ref=e87]:
+        - generic [ref=f20e4]:
+          - generic [ref=f20e5]:
+            - heading "WEATHER" [level=1] [ref=f20e6]
+            - paragraph [ref=f20e7]: REAL-TIME ATMOSPHERIC CONDITIONS
+          - generic [ref=f20e8]:
+            - generic [ref=f20e9]:
+              - generic [ref=f20e10]: LOCATION
+              - generic [ref=f20e11]:
+                - textbox [ref=f20e12]: New York
+                - button "SEARCH" [ref=f20e13] [cursor=pointer]
+            - generic [ref=f20e14]:
+              - generic [ref=f20e16]:
+                - generic [ref=f20e17]:
+                  - generic [ref=f20e18]: TEMPERATURE
+                  - generic [ref=f20e19]: 72°
+                  - generic [ref=f20e20]: Clear sky
+                - img [ref=f20e22]
+              - generic [ref=f20e28]:
+                - generic [ref=f20e29]:
+                  - generic [ref=f20e30]: FEELS LIKE
+                  - generic [ref=f20e31]: 67°F
+                - generic [ref=f20e32]:
+                  - generic [ref=f20e33]: New York, United States
+                  - generic [ref=f20e34]: America/New_York
+            - generic [ref=f20e35]:
+              - generic [ref=f20e36]:
+                - generic [ref=f20e38]:
+                  - generic [ref=f20e39]: HUMIDITY
+                  - img [ref=f20e40]
+                - generic [ref=f20e43]: 29%
+              - generic [ref=f20e46]:
+                - generic [ref=f20e48]:
+                  - generic [ref=f20e49]: WIND SPEED
+                  - img [ref=f20e50]
+                - generic [ref=f20e54]: 13 mph
+                - generic [ref=f20e55]: 10m altitude measurement
+              - generic [ref=f20e56]:
+                - generic [ref=f20e58]:
+                  - generic [ref=f20e59]: VISIBILITY
+                  - img [ref=f20e60]
+                - generic [ref=f20e63]: 11.6 mi
+                - generic [ref=f20e64]: 61,300 meters
+              - generic [ref=f20e65]:
+                - generic [ref=f20e67]:
+                  - generic [ref=f20e68]: PRECIPITATION
+                  - img [ref=f20e69]
+                - generic [ref=f20e71]: 0 mm
+                - generic [ref=f20e72]: Current accumulation
+            - paragraph [ref=f20e74]: POWERED BY OPEN-METEO • DATA UPDATED IN REAL-TIME
+  - alert [ref=e48]
